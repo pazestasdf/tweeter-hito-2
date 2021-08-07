@@ -1,5 +1,5 @@
-include ActionView::Helpers::UrlHelper
 class Tweet < ApplicationRecord
+  include ActionView::Helpers::UrlHelper
   before_save :add_hashtags
   
   belongs_to :user
