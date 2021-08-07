@@ -10,7 +10,7 @@ class Tweet < ApplicationRecord
   
   scope :tweets_for_me, -> (user) { where(user_id: user.arr_friends_id_and_me) }
   
-  paginates_per 5
+  paginates_per 50
 
   def add_hashtags
     new_content = ""
