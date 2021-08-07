@@ -1,13 +1,29 @@
+include ActionView::Helpers::UrlHelper
 class Tweet < ApplicationRecord
+  before_save :add_hashtags
+  
   belongs_to :user
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liking_users, :through => :likes, :source => :user
 
   validates :content, :presence => true
   
-  scope :tweets_for_me, -> (user) { where(user_id: user.arr_friends_id) }
-
+  scope :tweets_for_me, -> (user) { where(user_id: user.arr_friends_id_and_me) }
+  
   paginates_per 5
+
+  def add_hashtags
+    new_content = ""
+    self.content.split(" ").each do |word|
+      if word.starts_with?("#")
+        word_clean = word.gsub("#", "")
+        new_content += link_to(word, Rails.application.routes.url_helpers.root_path+"?search="+word_clean)+" "
+      else
+        new_content += word + " "
+      end
+    end
+    self.content = new_content
+  end
 
   def like_icon(user)
     if self.is_liked?(user)

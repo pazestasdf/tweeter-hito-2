@@ -8,7 +8,7 @@
         </div>
     
         <div class="col-3">
-            <h5 class="text">@<%= tweet.user.username %> dice:</h5><i class="far fa-comment-dots"></i> <i><%= tweet.content %></i>
+            <h5 class="text">@<%= tweet.user.username %> dice:</h5><i class="far fa-comment-dots"></i> <i><%= tweet.content.html_safe %></i>
     
         <% if user_signed_in? && current_user != tweet.user %>
         <div>
