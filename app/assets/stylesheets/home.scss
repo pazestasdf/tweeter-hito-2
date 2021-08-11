@@ -4,3 +4,23 @@
 .avatar-in-tweet {
     width: 100px;
 }
+body {
+    background-image: url("bees.gif");
+    background-repeat: repeat;
+    background-color: #ffffff;
+  }
+.navbar-brand{
+
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px !important;
+}
+
+.feed{
+    background-color: #ffffff;
+    opacity: 0.90;
+}
+.transparent-div{
+    background-color: #ffffff;
+    opacity: 0.90;
+    padding-top: 2em;
+}

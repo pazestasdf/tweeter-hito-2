@@ -1,14 +1,14 @@
-<div class="col-12 border border-info p-3 mt-2">
+<div class="feed col-12 border border-warning p-3 mt-2">
     <div class="form-group text-right">
         <small><%= link_to "<i class='fa fa-calendar'></i>".html_safe+time_ago_in_words(tweet.created_at), tweet, :class => "text-muted"%></small>
     </div>
     <div class="row">
-        <div class="col-1 mr-3">
+        <div class="col-1 mr-4">
      <%= image_tag (tweet.user.avatar), :class => "avatar-in-tweet rounded" %>
         </div>
     
         <div class="col-3">
-            <h5 class="text">@<%= tweet.user.username %> dice:</h5><i class="far fa-comment-dots"></i> <i><%= tweet.content.html_safe %></i>
+            <h5 class="text">@<%= tweet.user.username %> dice:</h5><i class="fab fa-forumbee text-warning"></i> <i><%= tweet.content.html_safe %></i>
     
         <% if user_signed_in? && current_user != tweet.user %>
         <div>
